@@ -1,1 +1,1 @@
-# Log by HardyShi
+# View touch event by KevinHao

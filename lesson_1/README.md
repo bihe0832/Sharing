@@ -1,1 +1,1 @@
-# Android Project by EricHua
+# adb 命令 by hardyshi
