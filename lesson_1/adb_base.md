@@ -1,57 +1,59 @@
-# ADB
+## ADB Base Command
 ### 设备类
-- ***adb devices***
+####**adb devices**
         说明：列出所有连接的设备
-        命令：adb devices
-                offline：此实例没有与adb相连接或者无法响应.
-                device：此实例正与adb服务器连接。  
+        命令： adb devices
+                device：此实例正与adb服务器连接。
                 no device：如果当前没有模拟器/设备运行，adb则返回   
         事例：` adb devices `
 
-- ***adb start-server & adb kill-server***
+####***adb start-server & adb kill-server***
         说明：start-server：检查是否启动，没有就启动 ； kill-server：如果有运行server，杀掉
-        命令：adb start-server
-              adb kill-server
-                adb kill-server 一般在键入adb shell命令后显示device offline或者是显示有多个设备的情况下使用
-        事例：` adb start-server `
-             ` adb kill-server `
+        命令：
+                adb start-server
+                adb kill-server
+                adb kill-server 一般在键入adb shell命令显示device offline或有多个设备的情况下使用
+        事例：
+                ` adb start-server `
+                ` adb kill-server `
 
-- ***adb install***
+#### ***adb install***
         说明：从本地安装应用到手机
         命令：adb install <apk文件路径>
         事例：` adb install D:/MSDKSample.apk `
 
-- ***adb uninstall***
+#### ***adb uninstall***
         说明：卸载应用
-        命令：adb uninstall <包名>
-                彻底卸载
-             adb shell pm uninstall -k <包名>
-                卸载应用但是保留配置和缓存文件，一般本地调试使用。例如构造了数据库等
-        事例：` adb uninstall com.example.wegame `
-             ` adb shell pm uninstall -k com.example.wegame `
-![Alt text](./1402496875328.png)
+        命令：
+                adb uninstall <包名> ：彻底卸载
+                adb shell pm uninstall -k <包名> ：卸载应用但是保留配置和缓存文件，一般本地调试使用。例如构造了数据库等
+        事例：
+                ` adb uninstall com.example.wegame `
+                ` adb shell pm uninstall -k com.example.wegame `
 
-- ***adb push***
+#### ***adb push***
         说明：从电脑上发送文件到设备
         命令：adb push <本地路径> <设备路径>
                例如： 发送配置文件，例如push
         事例：` adb push D:/a.txt /sdcard/ `
 
-- ***adb pull***
+####  ***adb pull***
         说明：从设备上下载文件到电脑
         命令：adb pull <设备路径> <本地路径>
                例如：本地日志，测试连接adb，不停测试
         事例：` adb pull /sdcard/MSDK/log.dat D:/  `
 
+==========
+
 ### 调试类
 
--  ***adb bugreport***
+#### ***adb bugreport***
         说明：会有从开机之后详细的dumpsys,dumpstate和logcat信息，是一份完整的日志记录。
         命令：adb bugreport
                例如：对分析用户行为，异常信息，系统状态有很大的参考作用。时间长，速度慢，要耐心！
         事例：` adb bugreport > D:/bugreport.log `
 
--  ***adb logcat***
+#### ***adb logcat***
         说明：日志记录。http://blog.csdn.net/xyz_lmn/article/details/7004710
         命令：adb logcat
             - 过滤日志输出
